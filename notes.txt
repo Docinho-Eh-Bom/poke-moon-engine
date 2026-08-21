@@ -1,0 +1,36 @@
+-> start action/queue 
+-> prevent a fainted pokemon from attacking before the turn ends
+-> start check_interruption
+-> enemy AI (the rand, the dmgMinMax(only dmg moves), and the supaMinMax(effects/stats boost/etc etc))
+-> split attacks (physical/special)
+-> status effects 
+-> teams
+
+-> natures
+-> evs/ivs
+-> pkm editor/creator (not only import and calc and boom)
+-> move selector for the editor/creator
+
+-> stateMachine error state
+-> create function move.resolvePrio() for the resolve
+-> error treatment (gotta test 'em all) 
+
+
+start_turn -> new turn                                
+choice -> wait for players                             
+resolve -> actions                     
+check_interruption -> switches(normal/faint/move switch), move fails, itens(MAYBE) or simply continue
+check_result -> team faint/surrender                
+finish -> battle is over                                    
+
+START_TURN
+    |->CHOICE
+        |->RESOLVE
+            |->(ACTION P1)
+                |->CHECK_INTERRUPTION
+                    |->(ACTION P2)
+                        |->CHECK_INTERRUPTION
+                            |->CHECK_RESULT
+                                |->START_TURN/FINISH
+
+                           
